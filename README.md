@@ -40,3 +40,14 @@ This repository contains essential ROS packages that constitute the core of the 
 
 The ROS packages follow a specific directory structure within the `src` directory:
 
+
+## Usage
+
+After successfully setting up the packages in your catkin workspace, you can proceed with launching and running the system using ROS commands.
+
+```bash
+# Example: Source the setup.bash file
+source /path/to/catkin_ws/devel/setup.bash
+
+# Run your ROS nodes or launch files
+roslaunch your_package_name your_launch_file.launch
