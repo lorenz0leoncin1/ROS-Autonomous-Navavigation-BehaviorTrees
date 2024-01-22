@@ -53,3 +53,8 @@ source /path/to/catkin_ws/devel/setup.bash
 
 # Run your ROS nodes or launch files
 roslaunch your_package_name your_launch_file.launch
+
+
+## Launch Script
+
+Within the `navigation` package, you can find a helpful Bash script named `launch_my_dialogue.sh`. This script automates the startup process of the entire system.
