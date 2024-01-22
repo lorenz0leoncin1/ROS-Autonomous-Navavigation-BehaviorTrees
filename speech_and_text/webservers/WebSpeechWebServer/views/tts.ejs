@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <div id="lang"><%= lang %></div>
+  <p>Richiesta la frase: <p id ="text"><%= stringa %></p>
+  </p>
+</body>
+
+</html>
+
+<script>
+  var synth = window.speechSynthesis || speechSynthesis;
+  var utterThis = new SpeechSynthesisUtterance(document.getElementById('text').textContent);
+  utterThis.lang = document.getElementById('lang').textContent;
+  utterThis.pitch = 1;
+  utterThis.rate = 1;
+  synth.speak(utterThis);
+  utterThis.addEventListener('end', () => {
+    window.close()
+  })
+</script>

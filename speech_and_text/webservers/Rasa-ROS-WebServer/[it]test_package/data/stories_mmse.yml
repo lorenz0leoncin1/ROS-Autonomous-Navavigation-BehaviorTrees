@@ -1,0 +1,61 @@
+version: "2.0"
+stories:
+  - story:  Mini Mental State Evaluation
+    steps:
+    - intent: intent_start_mmse
+    - action: action_reset_all_slots
+    - action: utter_start_mmse
+    - action: mmse_form
+    - active_loop: mmse_form
+    - active_loop: null
+    - action: utter_end_mmse
+    - action: utter_stop_interacting
+
+  - story: Mini Mental State Evaluation Example
+    steps:
+    - intent: intent_start_mmse
+    - action: action_reset_all_slots
+    - action: utter_start_mmse
+    - action: mmse_form
+    - active_loop: mmse_form
+    - slot_was_set:
+      - requested_slot: current_year
+    - slot_was_set:
+      - current_year: 2022
+    - slot_was_set:
+      - requested_slot: current_season
+    - slot_was_set:
+      - current_season: Inverno
+    - slot_was_set:
+      - requested_slot: current_month
+    - slot_was_set:
+      - current_month: gennaio
+    - slot_was_set:
+      - requested_slot: current_weekday
+    - slot_was_set:
+      - current_weekday: martedì
+    - slot_was_set:
+      - requested_slot: current_country
+    - slot_was_set:
+      - current_country: italia
+    - slot_was_set:
+      - requested_slot: current_region
+    - slot_was_set:
+      - current_region: lombardia
+    - slot_was_set:
+      - requested_slot: tiger_vs_tiger
+    - slot_was_set:
+      - tiger_vs_tiger: true
+    - slot_was_set:
+      - requested_slot: null
+    - slot_was_set:
+      - requested_slot: pane_casa_gatto
+    - slot_was_set:
+      - pane_casa_gatto: None
+    - slot_was_set:
+      - requested_slot: reverse_counting
+    - slot_was_set:
+      - reverse_counting: None
+    - active_loop: null
+    - action: utter_end_mmse
+    - action: utter_stop_interacting

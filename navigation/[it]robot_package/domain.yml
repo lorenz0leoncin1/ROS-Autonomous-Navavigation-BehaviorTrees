@@ -1,0 +1,219 @@
+version: '3.1'
+
+intents:
+- intent_enter_dialoguemode
+- intent_enter_navmode
+- intent_enter_roommode
+- intent_enter_impara
+- intent_list_rooms
+- intent_exit_mode
+
+- intent_greet
+
+- intent_get_time
+- intent_get_date
+
+- intent_robot_avanti
+- intent_robot_cmd
+- intent_robot_dx
+- intent_robot_indietro
+- intent_robot_stop
+- intent_robot_sx
+
+- intent_save_room
+- intent_go_to_room
+- intent_delete_room
+
+- intent_enter_routine  # Nuovo intent per la modalità routine
+- intent_start_routine  # Nuovo intent per la modalità routine
+
+
+- intent_enter_impara_routine #NEW
+
+- intent_save_routine
+- intent_new_room
+- intent_save_rooms
+- intent_finish_routine
+- intent_confirm
+- intent_answer
+
+- intent_start_interaction
+- intent_list_routine_rooms
+
+- intent_list_routine
+
+- intent_help
+- intent_check_mode
+- intent_shut_down
+- nlu_fallback
+
+responses:
+  utter_default:
+  - text: Scusa non ho capito, puoi ripetere?
+  
+  utter_stop_interacting:
+  - text: interaction_end
+  
+  utter_navigation_commands:
+  - text: I comandi sono; "anvanti" per andare avanti, "indietro" per andare indietro (da fermo), "destra" e "sinistra" per girare, "stop" per fermare il robot, "esci" per uscire dalla modalità corrente, "comandi" per la lista dei comandi.
+  
+  utter_invalid_command:
+  - text: Comando non valido in questa modalità.
+  
+  utter_enter_dialoguemode:
+  - text: Salve, di cosa hai bisogno?
+  
+  utter_enter_navmode:
+  - text: Dire "comandi" per la lista dei comandi.
+
+  utter_enter_impara:
+  - text: Salvare o eliminare stanza?
+
+  utter_ask_room_name:
+  - text: Nome della stanza?
+
+  utter_greet:
+  - text: Buongiorno.
+
+  utter_goodbye:
+  - text: Arrivederci.
+
+  utter_enter_routine: #New
+  - text: Benvenuto nella modalità "routine"! Qua potrai eseguire la routine salvata #Nuovo utter per la modalità routine
+
+  utter_routine_succed: #New
+  - text: Routine completata con successo #New
+
+  utter_routine_fail: #New
+  - text: ERRORE! Routine non terminata con successo #New
+
+  utter_enter_impara_routine:      #NEW
+  - text: Entrato nella modalità impara routine. Qui potrai chiedere di elencare la routine esistente o crearne una nuova!
+
+  utter_ask_room:
+  - text: Nomina un'altra stanza salvata se la vuoi aggiungere. Dii "salva" per salvare la routine ed uscire dalla modalita "crea routine"
+
+  utter_help:
+  - text: Le modalità disponibili sono le seguenti... telecomando, navigazione, discorso, impara, impara routine e routine. Per uscire da una modalità utilizza il comando vocale... "esci"!
+  #The use of "" avoid the misunderstandings of '' inside the text
+  utter_start_interaction:
+  - text: "Benvenuto! Posso aiutarti ad eseguire le seguenti modalita: telecomando, navigazione, discorso, impara, impara routine e routine. Per uscire da una modalità utilizza il comando vocale... esci! Puoi anche chiedere aiuto per elencare tutte le modalità disponibili."
+
+actions:
+- action_exit_mode
+
+- action_get_time
+- action_get_date
+
+- action_reset_all_slots
+- action_enter_teleop
+- action_robot_avanti
+- action_robot_dx
+- action_robot_indietro
+- action_robot_stop
+- action_robot_sx
+
+- action_save_room
+- action_go_to_room
+- action_handle_list
+- action_list_room
+- action_delete_room
+- action_handle_save_room
+- action_handle_go_to_room
+- action_handle_delete_room
+- validate_room_name_form
+- validate_go_to_room_form
+
+- action_utter_commands
+- utter_greet
+
+
+- action_handle_start_routine        
+- action_routine                     
+- utter_enter_routine                
+- utter_routine_succed               
+- utter_routine_fail                 
+
+- utter_start_interaction
+- utter_enter_impara_routine         
+
+- action_handle_enter_impara_routine
+- action_handle_save_routine
+- action_save_routine
+- action_ask_room 
+- action_end_routine
+- action_done
+- action_handle_room_list_routine
+- action_setup_routine
+- action_enter_impara_routine
+
+- action_handle_routine_list
+- action_list_routine
+
+- action_check_mode
+- action_shut_down
+
+slots:
+  mode:
+    type: text
+    mappings:
+    - type: from_intent
+      value: telecomando
+      intent: intent_enter_navmode
+    - type: from_intent
+      value: discorso
+      intent: intent_enter_dialoguemode
+    - type: from_intent
+      value: navigazione
+      intent: intent_enter_roommode
+    - type: from_intent
+      value: impara
+      intent: intent_enter_impara
+    - type: from_intent             #New
+      value: routine               
+      intent: intent_enter_routine  
+    - type: from_intent
+      value: crea routine
+      intent: intent_enter_impara_routine
+
+
+  room_name:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: room_name_form
+        requested_slot: room_name
+    
+    - type: from_text
+      conditions:
+      - active_loop: go_to_room_form
+        requested_slot: room_name
+
+    - type: from_text
+      conditions:
+      - active_loop: delete_room_form
+        requested_slot: room_name
+
+    - type: from_text               #New
+      conditions:                   #New
+      - active_loop: routine_form   #New
+       # requested_slot: []         #New
+
+
+forms:
+  room_name_form:
+    required_slots:
+    - room_name
+
+  go_to_room_form:
+    required_slots:
+    - room_name
+
+  delete_room_form:
+    required_slots:
+    - room_name
+  
+  routine_form:                   #Ǹew
+    required_slots: []            #New
+

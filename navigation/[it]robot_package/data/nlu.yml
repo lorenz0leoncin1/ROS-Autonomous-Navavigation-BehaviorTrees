@@ -1,0 +1,224 @@
+version: "3.1"
+
+nlu:
+- intent: intent_enter_navmode
+  examples: |
+    - telecomando
+    - te le comando
+    - modalita te le comando
+    - modalita telecomando
+    - comando
+    - tele comando
+- intent: intent_enter_dialoguemode
+  examples: |
+    - discorso
+    - modalita discorso
+- intent: intent_enter_roommode
+  examples: |
+   - modalita navigazione
+   - navigazione
+   - nav
+   - navgazione
+   - naigazioni
+   - naviga
+- intent: intent_enter_impara
+  examples: |
+    - modalita impara
+    - impara stanza
+    - impara stanze
+    - impara modalita stanza
+    - impra modalita stanze
+- intent: intent_list_rooms
+  examples: |
+    - lista stanze
+    - elenco stanza
+    - quali sono le stanze salvate?
+    - che stanze ci sono?
+    - che stanze hai memorizzato?
+    - che stanze hai imparato
+- intent: intent_robot_avanti
+  examples: |
+    - avanti
+    - procedi dritto 
+    - vai avanti
+    - vai dritto
+- intent: intent_robot_indietro
+  examples: |
+    - indietro
+    - vai indietro 
+    - spostati indietro
+- intent: intent_robot_stop
+  examples: |
+    - stop
+    - fermati
+    - bloccati
+- intent: intent_robot_sx
+  examples: |
+    - sinistra
+    - snstra
+    - vai a sinistra
+    - spostati a sinistra
+- intent: intent_robot_dx
+  examples: |
+    - destra
+    - dstra
+    - vai a destra
+    - spostati a destra
+- intent: intent_robot_cmd
+  examples: |
+    - comandi
+    - lista comandi
+    - elenco comandi
+    - comndi
+- intent: intent_exit_mode
+  examples: |
+    - esci telecomando
+    - esci navigazione
+    - esci
+    - esci dialogo
+    - esci impara
+- intent: intent_get_date
+  examples: |
+    - che giorno è?
+    - quale giorno è oggi?
+    - qual è la data corrente?
+- intent: intent_get_time
+  examples: |
+    - che ore sono?
+    - che ora è?
+    - che orario è?
+    - quali sono le ore?
+- intent: intent_greet
+  examples: |
+    - ehi
+    - Buongiorno
+    - buondì
+    - Ciao
+    - salve
+- intent: intent_go_to_room
+  examples: |
+    - raggiungi stanza
+    - raggiungi posizione
+    - vai nella stanza
+- intent: intent_save_room
+  examples: |
+    - salva posizione
+    - memorizza stanza
+    - ricorda stanza
+    - salva luogo
+    - salva stanza
+    - salvare stanza
+    - registra stanza
+    - registra posizione
+    - memorizza luogo
+- intent: intent_delete_room
+  examples: |
+    - elimina stanza
+    - rimuovi posizione
+    - cancella luogo
+    - dimentica stanza
+- intent: intent_shut_down
+  examples: |
+    - spegni
+    - spegniti
+    - disattivati
+- intent: intent_enter_routine 
+  examples: |
+    - modalita routine
+    - routine
+    - rutina
+    - routina
+- intent: intent_start_routine
+  examples: |
+    - inizia routine
+    - attiva routine
+    - inizia rutina
+    - inizia routina
+    - esegui routine
+    - esegui routina
+    - esegui rutina
+- intent: intent_enter_impara_routine
+  examples: |
+    - impara routine
+    - impara tim
+    - impara routina
+    - impara rutine
+    - impara rutina
+    - impara rutin
+    - impara robin
+    - impara rotelle
+- intent: intent_delete_routine
+  examples: |
+    - elimina routine
+    - elimina rutina
+    - elimina rutine
+    - elimina routina
+- intent: intent_save_routine
+  examples: | 
+    - crea routine
+    - crea rutine
+    - crea rutina
+    - crea routina
+    - crea nuova routine
+    - nuova routine
+- intent: intent_finish_routine
+  examples: |
+    - salva
+    - slava
+    - slva
+- intent: intent_list_routine
+  examples: |
+    - elenca routine
+    - routine esistente
+    - elenca routine esistente
+    - dimmi la routine
+    - list routine
+    - lista routina
+    - dii la rutina
+
+- intent: intent_help
+  examples: |
+    - menu
+    - quali azioni sono disponibili
+    - elenca menu
+    - dimmi il menu
+    - cosa posso fare
+    - cosa faccio
+    - cosa fare
+    - aiuto
+
+- intent: intent_start_interaction
+  examples: |
+    - computer
+    - compute
+    - computar
+    - cumputer
+
+- intent: intent_check_mode
+  examples: |
+    - in che mode sono
+    - in quale modalita sono
+    - in che mode sono
+    - quale modalita è questa
+    - dove mi trovo
+    - dove sono
+
+- intent: intent_answer
+  examples: |
+    - yes
+    - si
+    - s
+    - S
+    - Sì
+    - No
+    - no  
+    
+- intent: intent_new_room
+  examples: |
+    - sala
+    - palestra
+    - cucina
+    - letto
+    - giochi
+    - foto
+    - tavolo

@@ -1,0 +1,103 @@
+version: "3.1"
+
+rules:
+  - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+    steps:
+    - intent: nlu_fallback
+    - action: utter_default
+
+  - rule: Greet user when user greets
+    steps: 
+    - intent: intent_greet
+    - action: utter_greet
+
+  - rule: Save room form
+    steps: 
+    - intent: intent_save_room
+    - action: action_handle_save_room
+
+  - rule: List rooms
+    steps: 
+    - intent: intent_list_rooms
+    - action: action_handle_list
+
+  - rule: Submit room name form
+    condition:
+    - active_loop: room_name_form
+    steps:
+    - action: room_name_form
+    - active_loop: null 
+    - slot_was_set:
+      - requested_slot: null
+    - action: action_save_room
+
+  - rule: Go to room form
+    steps: 
+    - intent: intent_go_to_room #raggiungi stanza     
+    - action: action_handle_go_to_room
+
+  - rule: Submit go to room form
+    condition: 
+    - active_loop: go_to_room_form
+    steps:
+    - action: go_to_room_form
+    - active_loop: null 
+    - action: action_go_to_room
+
+  - rule: Shut robot down
+    steps:
+    - intent: intent_shut_down
+    - action: action_shut_down
+    - action: utter_goodbye
+    - action: utter_stop_interacting
+
+  - rule: Delete room form
+    steps:
+    - intent: intent_delete_room
+    - action: action_handle_delete_room
+
+  - rule: Submit delete room form
+    condition: 
+    - active_loop: delete_room_form
+    steps:
+    - action: delete_room_form
+    - active_loop: null
+    - action: action_delete_room
+
+  - rule: Start routine 
+    steps:
+    - intent: intent_start_routine          #intent to start routine 
+    - action: action_handle_start_routine   # action to handle if there is at least one room in room.csv
+
+  - rule: Submit routine form               
+    condition:                              
+    - active_loop: routine_form             
+    steps:                                  
+    - action: routine_form                  
+    - active_loop: null                     
+    - action: action_routine                
+
+  - rule: List routine
+    steps:
+    - intent: intent_list_routine
+    - action: action_list_routine
+
+  - rule: Finish routine
+    steps:
+    - intent: intent_finish_routine
+    - action: action_done 
+
+  - rule: Help
+    steps:
+    - intent: intent_help
+    - action: utter_help
+  
+  - rule: Start Interaction
+    steps:
+    - intent: intent_start_interaction
+    - action: utter_start_interaction
+
+  - rule: Check Mode
+    steps:
+    - intent: intent_check_mode
+    - action: action_check_mode

@@ -1,0 +1,87 @@
+version: "2.0"
+nlu:
+- intent: intent_greet
+  examples: |
+    - Hi!
+    - Hello
+    - Hey
+    - Good morning
+    - Good afternoon
+    - Good evening
+- intent: intent_goodbye
+  examples: |
+    - See ya
+    - See you soon
+    - Bye 
+    - See you later
+    - Goodbye
+- intent: intent_ask_time
+  examples: |
+    - What time is it?
+    - what time
+- intent: intent_set_timer
+  examples: |
+    - Timer ten minutes
+    - Set timer thirty seconds
+    - Create timer for two hours
+- intent: intent_stop_bot
+  examples: |
+    - Stop
+    - stop
+- intent: intent_start_mmse
+  examples: |
+    - Launch mental state evaluation
+    - Start test
+    - launch test
+- intent: intent_define_current_year
+  examples: |
+    - We are in 2022
+    - 2022
+    - We currently are in twenty twentytwo
+- intent: intent_define_current_season
+  examples: |
+    - Fall
+    - Autumn
+    - Winter
+    - Spring
+    - Summer
+- intent: intent_define_current_month
+  examples: |
+    - january
+    - february
+    - march
+    - april
+    - May
+    - june
+    - july
+    - august
+    - September
+    - october
+    - november
+    - December
+- intent: intent_define_current_weekday
+  examples: |
+    - monday
+    - tuesady
+    - wednesday
+    - thursday
+    - friday
+    - saturday
+    - sunday
+- intent: intent_define_current_country
+  examples: |
+    - Italy
+    - France
+    - England
+    - Spain
+    - Norway
+    - Germany
+- intent: intent_define_current_region
+  examples: |
+    - Lombardy
+    - lombardi
+    - Tuscany
+- intent: intent_say_tiger_vs_tiger
+  examples: |
+    - Black background brown background
+    - black background brown background

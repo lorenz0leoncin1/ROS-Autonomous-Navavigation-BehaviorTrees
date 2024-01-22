@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+
+  <button id="start-button" onclick="startRecognition()">Start listening</button>
+  <div id="sentences">
+    <p id="result"></p>
+  </div>
+</body>
+
+</html>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/javascripts/speechRecognition.js"></script>

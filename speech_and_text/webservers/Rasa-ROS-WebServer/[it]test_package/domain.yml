@@ -1,0 +1,164 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- EXTERNAL_timer
+- intent_affirm
+- intent_ask_time
+- intent_define_current_country
+- intent_define_current_month
+- intent_define_current_region
+- intent_define_current_season
+- intent_define_current_weekday
+- intent_define_current_year
+- intent_define_reverse_counting
+- intent_deny
+- intent_goodbye
+- intent_greet
+- intent_request_equation
+- intent_say_pane_casa_gatto
+- intent_say_tiger_vs_tiger
+- intent_set_timer
+- intent_start_mmse
+- intent_stop_bot
+- intent_web_search
+- nlu_fallback
+entities:
+- amount-of-money
+- distance
+- duration
+- number
+- time
+- web_query
+slots:
+  current_year:
+    type: text
+    influence_conversation: true
+  current_season:
+    type: text
+    influence_conversation: true
+  current_month:
+    type: text
+    influence_conversation: true
+  current_weekday:
+    type: text
+    influence_conversation: true
+  current_country:
+    type: text
+    influence_conversation: true
+  current_region:
+    type: text
+    influence_conversation: true
+  tiger_vs_tiger:
+    type: text
+    influence_conversation: true
+  pane_casa_gatto:
+    type: text
+    influence_conversation: true
+  reverse_counting:
+    type: text
+    influence_conversation: true
+  equation_solution:
+    type: text
+    influence_conversation: true
+responses:
+  utter_default:
+  - text: Mi dispiace, ma non ho capito. Puoi ripetere?
+  utter_goodbye:
+  - text: Buona giornata!
+  utter_greet:
+  - text: Buongiorno.
+  utter_end_timer:
+  - text: tts_timer
+  utter_stop_command:
+  - text: tts_stop
+  utter_stop_interacting:
+  - text: interaction_end
+  utter_start_mmse:
+  - text: Adesso ti verranno proposte alcune domande.
+  utter_ask_mmse_form_current_year:
+  - text: Potresti dirmi in che anno siamo?
+  utter_ask_mmse_form_current_season:
+  - text: Potresti dirmi in che stagione siamo?
+  utter_ask_mmse_form_current_month:
+  - text: Potresti dirmi in che mese siamo?
+  utter_ask_mmse_form_current_weekday:
+  - text: Potresti dirmi che giorno della settimana è oggi?
+  utter_ask_mmse_form_current_country:
+  - text: Potresti dirmi in quale nazione ci troviamo?
+  utter_ask_mmse_form_current_region:
+  - text: Potresti dirmi in che regione ci troviamo?
+  utter_ask_mmse_form_tiger_vs_tiger:
+  - text: 'Potresti ripetere dopo di me la seguente frase: tigre contro tigre.'
+  utter_ask_mmse_form_pane_casa_gatto:
+  - text: 'Potresti ripetere dopo di me le seguenti parole: pane, casa e gatto.'
+  utter_ask_mmse_form_reverse_counting:
+  - text: Conta a ritroso da cento togliendo sette per cinque volte. Prenditi tutto il tempo necessario prima di rispondere.
+  utter_end_mmse:
+  - text: Grazie per aver partecipato al test.
+actions:
+- action_reset_all_slots
+- action_set_timer
+- action_utter_time
+- action_web_search
+- utter_end_timer
+- utter_goodbye
+- utter_greet
+- utter_stop_command
+- utter_stop_interacting
+#MMSE forms actions
+- utter_ask_mmse_form_current_country
+- utter_ask_mmse_form_current_month
+- utter_ask_mmse_form_current_region
+- utter_ask_mmse_form_current_season
+- utter_ask_mmse_form_current_weekday
+- utter_ask_mmse_form_current_year
+- utter_ask_mmse_form_pane_casa_gatto
+- utter_ask_mmse_form_reverse_counting
+- utter_ask_mmse_form_tiger_vs_tiger
+- utter_end_mmse
+- utter_start_mmse
+- validate_mmse_form
+#Equation form actions
+- action_generate_random_equation
+- validate_equation_form
+- action_ask_equation_solution
+
+forms:
+  mmse_form:
+    required_slots:
+      current_year:
+      - type: from_text
+        intent_name: intent_define_current_year
+      current_season:
+      - type: from_text
+        intent_name: intent_define_current_season
+      current_month:
+      - type: from_text
+        intent_name: intent_define_current_month
+      current_weekday:
+      - type: from_text
+        intent_name: intent_define_current_weekday
+      current_country:
+      - type: from_text
+        intent_name: intent_define_current_country
+      current_region:
+      - type: from_text
+        intent_name: intent_define_current_region
+      tiger_vs_tiger:
+      - type: from_text
+        intent_name: intent_say_tiger_vs_tiger
+      pane_casa_gatto:
+      - type: from_text
+        intent_name: intent_say_pane_casa_gatto
+      reverse_counting:
+      - type: from_text
+        intent_name: intent_define_reverse_counting
+  equation_form:
+    required_slots:
+      equation_solution:
+      - type: from_text
+        conditions:
+        - active_loop: equation_form
+          requested_slot: equation_solution

@@ -1,0 +1,134 @@
+version: "2.0"
+nlu:
+- intent: intent_greet
+  examples: |
+    - Ciao!
+    - ciao
+    - ehi
+    - Ehi
+    - Buongiorno
+    - buondì
+    - Buongiornissimo
+    - Ciao
+- intent: intent_goodbye
+  examples: |
+    - A presto
+    - Addio!
+    - Arrivederci
+    - Alla prossima
+    - Ci vediamo
+- intent: intent_ask_time
+  examples: |
+    - Che ore sono?
+    - che ore si sono fatte?
+- intent: intent_web_search
+  examples: |
+    - Cerca su internet
+    - Cerca sul web
+    - cerca
+    - Cerca chi è
+    - Cerca cosa
+- intent: intent_set_timer
+  examples: |
+    - Imposta timer dieci minuti
+    - Timer quindici ore
+    - Imposta timer nove giorni
+    - Crea timer quaranta secondi
+- intent: intent_stop_bot
+  examples: |
+    - Stop
+    - Fermati
+    - stop
+    - fermo
+- intent: intent_start_mmse
+  examples: |
+    - Avvia test di valutazione mentale
+    - Avvia test
+    - avvia valutazione mentale
+    - Comincia test di valutazione
+    - avvio test
+    - avvia test
+- intent: intent_define_current_year
+  examples: |
+    - Siamo nel 2021
+    - 2021
+    - Siamo nel duemila e ventuno
+    - Duemila ventuno
+    - Siamo nel duemila e ventidue
+    - duemila e ventidue
+- intent: intent_define_current_season
+  examples: |
+    - Siamo in autunno
+    - Siamo in estate
+    - Inverno
+    - Primavera
+    - Siamo in inverno
+    - Autunno
+    - Estate
+- intent: intent_define_current_month
+  examples: |
+    - Gennaio
+    - Febbraio
+    - Marzo
+    - Aprile
+    - Maggio
+    - Giugno
+    - Luglio
+    - Agosto
+    - Settembre
+    - Ottobre
+    - Novembre
+    - Dicembre
+- intent: intent_define_current_weekday
+  examples: |
+    - lunedì
+    - martedì
+    - mercoledì
+    - giovedì
+    - venerdì
+    - sabato
+    - domenica
+    - Martedì
+- intent: intent_define_current_country
+  examples: |
+    - Italia
+    - Francia
+    - Inghilterra
+    - Spagna
+    - Norvegia
+    - Germania
+- intent: intent_define_current_region
+  examples: |
+    - Lombardia
+    - lombardia
+- intent: intent_say_tiger_vs_tiger
+  examples: |
+    - Tigre contro tigre
+    - tigre contro tigre
+- intent: intent_say_pane_casa_gatto
+  examples: |
+    - Pane casa gatto
+    - pane casa gatto
+- intent: intent_define_reverse_counting
+  examples: |
+    - novantatre ottantasei settantanove settantadue sessantacinque
+    - 93 86 79 72 65
+- intent: intent_affirm
+  examples: |
+    - Certo
+    - Sì
+    - Vai avanti
+- intent: intent_deny
+  examples: |
+    - No
+    - Certo che no
+- intent: intent_request_equation
+  examples: |
+    - Chiedimi un calcolo semplice
+    - calcolo
+    - Proponi un'equazione
+    - proponi equazione
+    - Fammi fare un conto
+    - Proponi conto
+    - Proponi equazione
+    - equazione

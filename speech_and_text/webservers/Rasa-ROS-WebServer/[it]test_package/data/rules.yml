@@ -1,0 +1,36 @@
+version: "2.0"
+
+rules:
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: intent_goodbye
+  - action: utter_goodbye
+  - action: utter_stop_interacting
+
+- rule: Say hello anytime the user says greets
+  steps:
+  - intent: intent_greet
+  - action: utter_greet
+  - action: utter_stop_interacting
+
+- rule: Trigger `utter_end_timer` for `EXTERNAL_timer`
+  steps:
+  - intent: EXTERNAL_timer
+  - action: utter_end_timer
+
+- rule: Stop bot while speaking
+  steps:
+  - intent: intent_stop_bot
+  - action: utter_stop_command
+  - action: utter_stop_interacting
+
+- rule: Search on Web 
+  steps:
+  - intent: intent_web_search
+  - action: action_web_search
+  - action: utter_stop_interacting

@@ -1,0 +1,1 @@
+./launch_rasa_dialogue.sh it relaxed_sammet thirsty_swartz peaceful_mclean

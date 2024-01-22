@@ -1,0 +1,57 @@
+recipe: default.v1
+
+language: it
+
+pipeline:
+# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # If you'd like to customize it, uncomment and adjust the pipeline.
+# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: true
+  #- name: "KeywordIntentClassifier"
+  #  case_sensitive: True
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 100
+  constrain_similarities: true
+- name: FallbackClassifier
+  threshold: 0.8
+  ambiguity_threshold: 0.1
+- name: "DucklingEntityExtractor"
+    # url of the running duckling server
+  url: "http://localhost:8000"
+    # dimensions to extract
+  dimensions: ["time", "number", "amount-of-money", "distance", "duration"]
+    # allows you to configure the locale, by default the language is
+    # used
+  locale: "it_IT"
+    # if not set the default timezone of Duckling is going to be used
+    # needed to calculate dates from relative expressions like "tomorrow"
+  timezone: "Europe/Berlin"
+    # Timeout for receiving response from http url of the running duckling server
+    # if not set the default timeout of duckling http url is set to 3 seconds.
+  timeout: 60000000
+
+policies:
+- name: MemoizationPolicy
+- name: TEDPolicy
+  constrain_similarities: true
+  max_history: 5
+  epochs: 100
+- name: RulePolicy
+  # Confidence threshold for the `core_fallback_action_name` to apply.
+  # The action will apply if no other action was predicted with
+  # a confidence >= core_fallback_threshold
+  core_fallback_threshold: 0.8
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: true
+assistant_id: 20230719-115420-easy-freeway

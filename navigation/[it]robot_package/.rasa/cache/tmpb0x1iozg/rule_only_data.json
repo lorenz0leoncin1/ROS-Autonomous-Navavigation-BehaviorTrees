@@ -1,0 +1,9 @@
+{
+  "rule_only_slots": [],
+  "rule_only_loops": [
+    "room_name_form",
+    "go_to_room_form",
+    "delete_room_form",
+    "routine_form"
+  ]
+}

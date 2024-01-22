@@ -1,0 +1,29 @@
+version: "2.0"
+stories:
+
+  # What time is it stories
+  - story: Asking what time is it
+    steps:
+    - intent: intent_ask_time
+    - action: action_utter_time
+    - action: utter_stop_interacting
+
+  - story: Setting a timer
+    steps:
+    - intent: intent_set_timer
+    - action: action_set_timer
+    - action: utter_stop_interacting
+
+  - story: Asking a simple equation
+    steps:
+    - intent: intent_request_equation
+    - action: action_reset_all_slots
+    - action: action_generate_random_equation
+    - action: equation_form
+    - active_loop: equation_form
+    - slot_was_set:
+      - requested_slot: equation_solution
+    - slot_was_set:
+      - equation_solution: 8
+    - active_loop: null
+    - action: utter_stop_interacting

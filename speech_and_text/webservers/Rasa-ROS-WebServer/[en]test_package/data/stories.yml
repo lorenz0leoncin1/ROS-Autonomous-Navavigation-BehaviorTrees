@@ -1,0 +1,68 @@
+version: "2.0"
+stories:
+
+  # What time is it stories
+  - story: Asking what time is it
+    steps:
+    - intent: intent_ask_time
+    - action: action_utter_time
+    - action: utter_stop_interacting
+
+  - story: Setting a timer
+    steps:
+    - intent: intent_set_timer
+    - action: action_set_timer
+    - action: utter_stop_interacting
+
+  - story:  Mini Mental State Evaluation
+    steps:
+    - intent: intent_start_mmse
+    - action: action_reset_all_slots
+    - action: utter_start_mmse
+    - action: mmse_form
+    - active_loop: mmse_form
+    - active_loop: null
+    - action: utter_end_mmse
+    - action: utter_stop_interacting
+
+  - story: Mini Mental State Evaluation Example
+    steps:
+    - intent: intent_start_mmse
+    - action: action_reset_all_slots
+    - action: utter_start_mmse
+    - action: mmse_form
+    - active_loop: mmse_form
+    - slot_was_set:
+      - requested_slot: current_year
+    - slot_was_set:
+      - current_year: 2022
+    - slot_was_set:
+      - requested_slot: current_season
+    - slot_was_set:
+      - current_season: Winter
+    - slot_was_set:
+      - requested_slot: current_month
+    - slot_was_set:
+      - current_month: january
+    - slot_was_set:
+      - requested_slot: current_weekday
+    - slot_was_set:
+      - current_weekday: tuesday
+    - slot_was_set:
+      - requested_slot: current_country
+    - slot_was_set:
+      - current_country: italy
+    - slot_was_set:
+      - requested_slot: current_region
+    - slot_was_set:
+      - current_region: lombardy
+    - slot_was_set:
+      - requested_slot: tiger_vs_tiger
+    - slot_was_set:
+      - tiger_vs_tiger: true
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_end_mmse
+    - action: utter_stop_interacting
+

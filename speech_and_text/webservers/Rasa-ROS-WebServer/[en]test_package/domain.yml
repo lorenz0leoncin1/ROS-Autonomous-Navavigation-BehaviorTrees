@@ -1,0 +1,114 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- EXTERNAL_timer
+- intent_ask_time
+- intent_define_current_country
+- intent_define_current_month
+- intent_define_current_region
+- intent_define_current_season
+- intent_define_current_weekday
+- intent_define_current_year
+- intent_goodbye
+- intent_greet
+- intent_say_tiger_vs_tiger
+- intent_set_timer
+- intent_start_mmse
+- intent_stop_bot
+entities:
+- amount-of-money
+- distance
+- duration
+- number
+- time
+- web_query
+slots:
+  current_year:
+    type: text
+    influence_conversation: true
+  current_season:
+    type: text
+    influence_conversation: true
+  current_month:
+    type: text
+    influence_conversation: true
+  current_weekday:
+    type: text
+    influence_conversation: true
+  current_country:
+    type: text
+    influence_conversation: true
+  current_region:
+    type: text
+    influence_conversation: true
+  tiger_vs_tiger:
+    type: text
+    influence_conversation: true
+responses:
+  utter_default:
+  - text: I'm sorry, I didn't get it, can you repeat please?
+  utter_goodbye:
+  - text: Have a nice day.
+  utter_greet:
+  - text: Good morning.
+  utter_end_timer:
+  - text: tts_timer
+  utter_stop_command:
+  - text: tts_stop
+  utter_stop_interacting:
+  - text: interaction_end
+  utter_start_mmse:
+  - text: Starting mental state evaluation, please answer the following questions.
+  utter_ask_mmse_form_current_year:
+  - text: In which year are we?
+  utter_ask_mmse_form_current_season:
+  - text: In which season are we?
+  utter_ask_mmse_form_current_month:
+  - text: In which month are we?
+  utter_ask_mmse_form_current_weekday:
+  - text: In which day of the week are we
+  utter_ask_mmse_form_current_country:
+  - text: In which country are we?
+  utter_ask_mmse_form_current_region:
+  - text: In which region are we?
+  utter_ask_mmse_form_tiger_vs_tiger:
+  - text: Please repeat the following sentence. Black background, brown background.
+  utter_end_mmse:
+  - text: Thank you for partecipating to the mental state evaluation.
+actions:
+- action_reset_all_slots
+- action_set_timer
+- action_utter_time
+- utter_ask_mmse_form_current_country
+- utter_ask_mmse_form_current_month
+- utter_ask_mmse_form_current_region
+- utter_ask_mmse_form_current_season
+- utter_ask_mmse_form_current_weekday
+- utter_ask_mmse_form_current_year
+- utter_ask_mmse_form_tiger_vs_tiger
+- utter_end_mmse
+- utter_end_timer
+- utter_goodbye
+- utter_greet
+- utter_start_mmse
+- utter_stop_interacting
+- validate_mmse_form
+forms:
+  mmse_form:
+    required_slots:
+      current_year:
+      - type: from_text
+      current_season:
+      - type: from_text
+      current_month:
+      - type: from_text
+      current_weekday:
+      - type: from_text
+      current_country:
+      - type: from_text
+      current_region:
+      - type: from_text
+      tiger_vs_tiger:
+      - type: from_text

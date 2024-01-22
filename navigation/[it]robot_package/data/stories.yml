@@ -1,0 +1,111 @@
+version: "3.1"
+
+stories:
+  - story: Enter impara
+    steps: 
+    - intent: intent_enter_impara
+    - slot_was_set: 
+      - mode: impara
+    - action: utter_enter_impara
+
+  - story: Enter navigation mode
+    steps:
+    - intent: intent_enter_navmode
+    - slot_was_set: 
+      - mode: telecomando
+    - action: action_enter_teleop
+
+  - story: Robot forward
+    steps: 
+    - intent: intent_robot_avanti
+    - action: action_robot_avanti
+
+  - story: Robot Left
+    steps: 
+    - intent: intent_robot_sx
+    - action: action_robot_sx
+
+  - story: Robot Rigth
+    steps: 
+    - intent: intent_robot_dx
+    - action: action_robot_dx
+
+  - story: Robot stop
+    steps:
+    - intent: intent_robot_stop
+    - action: action_robot_stop
+  
+  - story: Robot backwards 0.1m
+    steps: 
+    - intent: intent_robot_indietro
+    - action: action_robot_indietro
+
+  - story: Robot commands
+    steps: 
+    - intent: intent_robot_cmd
+    - action: action_utter_commands
+
+  - story: Exit mode
+    steps: 
+    - intent: intent_exit_mode
+    - action: action_exit_mode
+
+  - story: Enter dialogue mode
+    steps:
+    - intent: intent_enter_dialoguemode
+    - slot_was_set:
+      - mode: discorso
+    - action: utter_enter_dialoguemode
+
+  - story: What time is it
+    steps: 
+    - intent: intent_get_time
+    - action: action_get_time
+
+  - story: What day is it
+    steps:
+    - intent: intent_get_date
+    - action: action_get_date
+
+  - story: Enter room navigation mode
+    steps:
+    - intent: intent_enter_roommode
+    - slot_was_set: 
+      - mode: navigazione
+    - action: action_list_room
+
+  #Enter the routine mode
+  - story: Enter routine mode         
+    steps:                            
+    - intent: intent_enter_routine    
+    - slot_was_set:                  
+      - mode: routine                 
+    - action: utter_enter_routine   
+
+  #Enter the learn routine mode
+  - story: Enter impara routine             
+    steps:                                  
+    - intent: intent_enter_impara_routine
+    - slot_was_set:
+      - mode: create routine
+    - action: action_enter_impara_routine    
+
+  #Enter create routine mode
+  - story: Create routine 1      
+    steps:   
+    - intent: intent_save_routine 
+    - action: action_handle_save_routine 
+  
+  #Set up the routine if u wanna overwrite an old routine, if present 
+  - story: Setup routine
+    steps: 
+    - intent: intent_answer
+    - action: action_setup_routine  
+
+  #Asks for rooms to add in the routine until u save 
+  - story: Create routine 2
+    steps:
+    - action: action_list_room
+    - intent: intent_new_room
+    - action: action_save_routine  
+    - action: action_ask_room   
