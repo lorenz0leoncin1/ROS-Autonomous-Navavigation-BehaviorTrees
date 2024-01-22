@@ -21,8 +21,6 @@ The main objective of this project is to enhance the capabilities of an autonomo
 
 ## Thesis Abstract
 
-[Provide a brief abstract or summary of your thesis. Highlight key topics, methodologies, and findings.]
-
 **Nota:** La tesi è scritta in italiano. Per una comprensione approfondita del progetto, ti invitiamo a leggere la tesi completa.
 
 Feel free to explore the repository and refer to the documentation for more technical details.
