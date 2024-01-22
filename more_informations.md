@@ -19,12 +19,6 @@ The main objective of this project is to enhance the capabilities of an autonomo
 - **Structured and implemented vocal interaction using Python and YAML, leveraging the RASA framework for vocal interaction with the robot**
 - **Resolved a bug in the RASA Action Server to extend the duration of custom actions from 10 seconds to hours**
 
-## Thesis Abstract
-
-**Nota:** La tesi è scritta in italiano. Per una comprensione approfondita del progetto, ti invitiamo a leggere la tesi completa.
-
-Feel free to explore the repository and refer to the documentation for more technical details.
-
 ## Contact
 
 For any inquiries or further information, feel free to contact me at [lorenzoleoncini18@gmail.com].
