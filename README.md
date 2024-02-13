@@ -2,9 +2,13 @@
 
 This repository is part of a larger project related to my thesis work. The thesis, written in Italian, provides additional context and in-depth details about the project. You can find the full thesis document in the link down below.
 
-**Nota:** La tesi è scritta in italiano. Per una comprensione approfondita del progetto, ti invitiamo a leggere la tesi completa.
+**Note:** The thesis is completely written in Italian.
 
 [Tesi di Laurea](https://drive.google.com/file/d/1E8GlbGUdTeAOGt3cpGkW1saGbpR9sHlA/view?usp=sharing)
+
+# Example of a routine execution
+
+https://github.com/lorenz0leoncin1/ROS-Autonomous-Navavigation-BehaviorTrees/assets/93738126/f39c3b56-fc7c-4965-a75a-c4d420ce8f04
 
 ## Project Overview
 
